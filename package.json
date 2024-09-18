@@ -36,6 +36,7 @@
     "helios-distribution-types": "^1.3.0",
     "jquery": "^3.7.1",
     "lodash.merge": "^4.6.2",
+    "scpearth": "file:",
     "semver": "^7.6.0",
     "toml": "^3.0.0"
   },
