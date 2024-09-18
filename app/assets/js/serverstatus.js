@@ -8,6 +8,10 @@ const net = require('net')
  * @returns {Promise.<Object>} A promise which resolves to an object containing
  * status information.
  */
+
+//address = scpearth.mcserver.us
+//port = 25565
+
 exports.getStatus = function(address, port = 25565){
 
     if(port == null || port == ''){
