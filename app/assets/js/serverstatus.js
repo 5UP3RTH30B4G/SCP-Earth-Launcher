@@ -9,9 +9,6 @@ const net = require('net')
  * status information.
  */
 
-//address = scpearth.mcserver.us
-//port = 25565
-
 exports.getStatus = function(address, port = 25565){
 
     if(port == null || port == ''){
