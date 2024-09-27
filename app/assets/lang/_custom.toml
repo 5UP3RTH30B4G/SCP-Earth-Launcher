@@ -15,6 +15,6 @@ sourceGithubLink = "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher"
 supportLink = "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/issues"
 
 [ejs.welcome]
-welcomeHeader = "Bienvenue sur SCP Earth / Welcome To SCP Earth"
+welcomeHeader = "Bienvenue sur SCP Earth"
 welcomeDescription = "description"
 welcomeDescCTA = "Plus que quelque clic"
