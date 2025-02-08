@@ -7,8 +7,8 @@ title = "SCP Earth Launcher"
 mediaGitHubURL = "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher"
 mediaTwitterURL = "#"
 mediaInstagramURL = "#"
-mediaYouTubeURL = "#"
-mediaDiscordURL = "https://discord.gg/"
+mediaYouTubeURL = "https://www.youtube.com/@SCPEarthOff"
+mediaDiscordURL = "https://discord.gg/tmgPNVu9wr"
 
 [ejs.settings]
 sourceGithubLink = "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher"
@@ -16,5 +16,5 @@ supportLink = "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/issues"
 
 [ejs.welcome]
 welcomeHeader = "Bienvenue sur SCP Earth"
-welcomeDescription = "description"
+welcomeDescription = "Description"
 welcomeDescCTA = "Plus que quelque clic"
