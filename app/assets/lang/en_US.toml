@@ -128,7 +128,9 @@ waitingText = "Waiting for Microsoft.."
 
 [ejs.welcome]
 continueButton = "CONTINUE"
-
+welcomeHeader = "Welcome on SCP Earth"
+welcomeDescription = "Description"
+welcomeDescCTA = "just a few clics away"
 
 [js.discord]
 waiting = "Waiting for Client.."
