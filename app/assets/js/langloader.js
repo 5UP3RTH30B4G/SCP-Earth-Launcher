@@ -38,6 +38,6 @@ exports.setupLanguage = function(){
     // Uncomment this when translations are ready
     exports.loadLanguage('fr_FR')
 
-    // Load Custom Language File for Launcher Customizer
+    // Load Custom Language File for all languages
     exports.loadLanguage('_custom')
 }
