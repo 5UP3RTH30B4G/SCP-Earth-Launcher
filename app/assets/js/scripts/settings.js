@@ -1451,30 +1451,33 @@ function populateAboutVersionInformation(){
  * Fetches the GitHub atom release feed and parses it for the release notes
  * of the current version. This value is displayed on the UI.
  */
-function populateReleaseNotes(){
+function populateReleaseNotes() {
     $.ajax({
         url: 'https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/releases.atom',
         success: (data) => {
-            const version = 'v' + remote.app.getVersion()
-            const entries = $(data).find('entry')
+            const version = 'v' + remote.app.getVersion();
+            const entries = $(data).find('entry');
             
-            for(let i=0; i<entries.length; i++){
-                const entry = $(entries[i])
-                let id = entry.find('id').text()
-                id = id.substring(id.lastIndexOf('/')+1)
+            entries.each((index, entryElement) => {
+                const entry = $(entryElement);
+                const id = entry.find('id').text().split('/').pop();
 
-                if(id === version){
-                    settingsAboutChangelogTitle.innerHTML = entry.find('title').text()
-                    settingsAboutChangelogText.innerHTML = entry.find('content').text()
-                    settingsAboutChangelogButton.href = entry.find('link').attr('href')
+                if (id === version) {
+                    const title = entry.find('title').text();
+                    const content = entry.find('content').text();
+                    const link = entry.find('link').attr('href');
+
+                    settingsAboutChangelogTitle.innerHTML = title;
+                    settingsAboutChangelogText.innerHTML = content;
+                    settingsAboutChangelogButton.href = link;
                 }
-            }
-
+            });
         },
-        timeout: 2500
-    }).catch(err => {
-        settingsAboutChangelogText.innerHTML = Lang.queryJS('settings.about.releaseNotesFailed')
-    })
+        timeout: 2500,
+        error: () => {
+            settingsAboutChangelogText.innerHTML = Lang.queryJS('settings.about.releaseNotesFailed');
+        }
+    });
 }
 
 /**
