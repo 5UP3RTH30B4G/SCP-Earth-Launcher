@@ -1,10 +1,10 @@
 {
   "name": "scpearth",
-  "version": "0.0.4-2",
+  "version": "0.0.4-pre.2",
   "productName": "SCP Earth Launcher",
   "description": "Official SCP Earth Launcher",
   "author": "5UP3R TH30 B4G",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "homepage": "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher",
   "bugs": {
     "url": "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/issues"
