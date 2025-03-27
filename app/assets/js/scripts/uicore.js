@@ -50,7 +50,7 @@ if(!isDev){
                 
                 if(process.platform === 'darwin'){
                                          //https://github.com/dscalzi/HeliosLauncher/releases/download/v${info.version}/Helios-Launcher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg <-- Old link
-                                         //https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/releases/download/0.0.3/SCP.Earth.Launcher-setup-0.0.3.exe <-- Latest version at time of writing
+                                         //https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/releases/download/0.0.3/SCP.Earth.Launcher-setup-0.0.4.exe <-- Latest version at time of writing
                     info.darwindownload = `https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/releases/download/v${info.version}/SCP.Earth.Launcher-setup-${info.version}.exe`
                     showUpdateUI(info)
                 }
