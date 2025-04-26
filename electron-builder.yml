@@ -2,7 +2,7 @@ appId: 'scpearthlauncher'
 productName: 'SCP Earth Launcher'
 artifactName: '${productName}-setup-${version}.${ext}'
 
-copyright: 'Copyright © 2024 BERGER Théo'
+copyright: 'Copyright © Daniel D. Scalzi'
 
 asar: true
 compression: 'maximum'
