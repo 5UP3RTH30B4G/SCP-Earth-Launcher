@@ -5,7 +5,7 @@ title = "SCP Earth Launcher"
 
 [ejs.landing]
 mediaGitHubURL = "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher"
-mediaTwitterURL = "#"
+mediaTwitterURL = "https://x.com/SCP_Earth"
 mediaInstagramURL = "#"
 mediaYouTubeURL = "https://www.youtube.com/@SCPEarthOff"
 mediaDiscordURL = "https://discord.gg/tmgPNVu9wr"
@@ -14,3 +14,6 @@ mediaDiscordURL = "https://discord.gg/tmgPNVu9wr"
 sourceGithubLink = "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher"
 supportLink = "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/issues"
 viewReleaseNotesLink = "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/commits/"
+
+[js.landing]
+atomFeedURL = "https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/releases.atom"

@@ -956,7 +956,10 @@ function displayArticle(articleObject, index){
  * Load news information from the RSS feed specified in the
  * distribution index.
  */
-async function loadNews(){
+
+/** 
+ * Old Code:
+ * async function loadNews(){
 
     const distroData = await DistroAPI.getDistribution()
     if(!distroData.rawDistribution.rss) {
@@ -1010,6 +1013,56 @@ async function loadNews(){
                         }
                     )
                 }
+                resolve({
+                    articles
+                })
+            },
+            timeout: 2500
+        }).catch(err => {
+            resolve({
+                articles: null
+            })
+        })
+    })
+
+    return await promise
+}
+ */
+async function loadNews() {
+    const newsFeed = (Lang.queryJS('landing.atomFeedURL') || '').trim();
+    const newsHost = new URL(newsFeed).origin + '/';
+    
+    const promise = new Promise((resolve, reject) => {
+        $.ajax({
+            url: newsFeed,
+            success: (data) => {
+                const entries = $(data).find('entry')
+                const articles = []
+
+                for(let i = 0; i < entries.length; i++) {
+                    const el = $(entries[i])
+
+                    const date = new Date(el.find('updated').text())
+                        .toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' })
+
+                    const link = el.find('link').attr('href')
+                    const title = el.find('title').text()
+                    const author = el.find('author > name').text()
+                    let content = el.find('content').text()
+
+                    // Atom content est souvent encodé HTML : on pourrait ajouter ici un décodeur si besoin.
+
+                    articles.push({
+                        link,
+                        title,
+                        date,
+                        author,
+                        content,
+                        comments: 'Release', // Pas de nombre de commentaires dans Atom
+                        commentsLink: link
+                    })
+                }
+
                 resolve({
                     articles
                 })
