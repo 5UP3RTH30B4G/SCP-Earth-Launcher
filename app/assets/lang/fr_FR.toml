@@ -126,12 +126,6 @@ updateReleaseNotes = "Notes de mise à jour"
 [ejs.waiting]
 waitingText = "En attente de Microsoft.."
 
-[ejs.welcome]
-continueButton = "CONTINUER"
-welcomeHeader = "Bienvenue sur SCP Earth"
-welcomeDescription = "Description"
-welcomeDescCTA = "just a few clics away"
-
 [js.discord]
 waiting = "En attente du client.."
 state = "Serveur: {shortId}"
