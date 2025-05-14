@@ -50,8 +50,8 @@ if(!isDev){
                 
                 if(process.platform === 'darwin'){
                                          //https://github.com/dscalzi/HeliosLauncher/releases/download/v${info.version}/Helios-Launcher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg <-- Old link
-                                         //https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/releases/download/0.0.3/SCP.Earth.Launcher-setup-0.0.4.exe <-- Latest version at time of writing
-                    info.darwindownload = `https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/releases/download/v${info.version}/SCP.Earth.Launcher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
+                                         //https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/releases/download/v0.0.4-pre.4/SCP.Earth.Launcher-setup-0.0.4-pre.4.exe <-- Latest version at time of writing
+                    info.darwindownload = `https://github.com/5UP3RTH30B4G/SCP-Earth-Launcher/releases/download/v${info.version}/SCP.Earth.Launcher-setup-${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
                     showUpdateUI(info)
                 }
                 
@@ -111,7 +111,7 @@ function showUpdateUI(info){
     //TODO Make this message a bit more informative `${info.version}`
     document.getElementById('image_seal_container').setAttribute('update', true)
     document.getElementById('image_seal_container').onclick = () => {
-        setOverlayContent('Update Available', 'A new update for the launcher is available. Would you like to install now?', 'Install', 'Later')
+        /*setOverlayContent('Update Available', 'A new update for the launcher is available. Would you like to install now?', 'Install', 'Later')
         setOverlayHandler(() => {
             if(!isDev){
                 ipcRenderer.send('autoUpdateAction', 'installUpdateNow')
@@ -123,7 +123,7 @@ function showUpdateUI(info){
         setDismissHandler(() => {
             toggleOverlay(false)
         })
-        toggleOverlay(true, true)
+        toggleOverlay(true, true)*/
         switchView(getCurrentView(), VIEWS.settings, 500, 500, () => {
             settingsNavItemListener(document.getElementById('settingsNavUpdate'), false)
         })
