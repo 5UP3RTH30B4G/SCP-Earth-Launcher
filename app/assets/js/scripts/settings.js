@@ -2,12 +2,18 @@
 const os     = require('os')
 const semver = require('semver')
 
+const settingsUpdateLog = document.getElementById('settingsUpdateLog')
+
 const DropinModUtil  = require('./assets/js/dropinmodutil')
 const { MSFT_OPCODE, MSFT_REPLY_TYPE, MSFT_ERROR } = require('./assets/js/ipcconstants')
 
 const settingsState = {
     invalid: new Set()
 }
+
+ipcRenderer.on('autoUpdateLog', (_, logText) => {
+    settingsUpdateLog.innerText = logText
+})
 
 function bindSettingsSelect(){
     for(let ele of document.getElementsByClassName('settingsSelectContainer')) {

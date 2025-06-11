@@ -3964,3 +3964,9 @@ input:checked + .toggleSwitchSlider:before {
 .rotating {
     animation: rotating 10s linear infinite;
 }
+
+.updateLog {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #ccc;
+}

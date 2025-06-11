@@ -1,6 +1,6 @@
 {
   "name": "scpearth",
-  "version": "0.0.4-pre.6",
+  "version": "0.0.4-pre.7",
   "productName": "SCP Earth Launcher",
   "description": "Official SCP Earth Launcher",
   "author": "5UP3R TH30 B4G",
@@ -28,6 +28,7 @@
     "discord-rpc-patch": "^4.0.1",
     "ejs": "^3.1.10",
     "ejs-electron": "^3.0.0",
+    "electron-log": "^5.4.0",
     "electron-updater": "^6.3.4",
     "fs-extra": "^11.1.1",
     "github-syntax-dark": "^0.5.0",

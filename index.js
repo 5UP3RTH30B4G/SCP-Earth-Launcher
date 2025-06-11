@@ -4,6 +4,7 @@ remoteMain.initialize()
 // Requirements
 const { app, BrowserWindow, ipcMain, Menu, shell } = require('electron')
 const autoUpdater                       = require('electron-updater').autoUpdater
+const log                               = require('electron-log')
 const ejse                              = require('ejs-electron')
 const fs                                = require('fs')
 const isDev                             = require('./app/assets/js/isdev')
@@ -13,12 +14,18 @@ const { pathToFileURL }                 = require('url')
 const { AZURE_CLIENT_ID, MSFT_OPCODE, MSFT_REPLY_TYPE, MSFT_ERROR, SHELL_OPCODE } = require('./app/assets/js/ipcconstants')
 const LangLoader                        = require('./app/assets/js/langloader')
 
+// Auto updater
+autoUpdater.logger = log
+autoUpdater.logger.transports.file.level = 'warn'
+
 // Setup Lang
 LangLoader.setupLanguage()
 
 // Setup auto updater.
 function initAutoUpdater(event, data) {
 
+    autoUpdater.forceDevUpdateConfig = true
+    
     if(data){
         autoUpdater.allowPrerelease = true
     } else {
@@ -43,11 +50,17 @@ function initAutoUpdater(event, data) {
         event.sender.send('autoUpdateNotification', 'update-not-available', info)
     })
     autoUpdater.on('checking-for-update', () => {
-        event.sender.send('autoUpdateNotification', 'checking-for-update')
-    })
+        log.info('Checking for updates...')
+        BrowserWindow.webContents.send('autoUpdateLog', 'Vérification des mises à jour...')
+})
+    autoUpdater.on('update-available', (info) => {
+        log.info('Update available', info)
+        BrowserWindow.webContents.send('autoUpdateLog', `Mise à jour disponible: ${info.version}`)
+})
     autoUpdater.on('error', (err) => {
-        event.sender.send('autoUpdateNotification', 'realerror', err)
-    }) 
+        log.error('Update error', err)
+        BrowserWindow.webContents.send('autoUpdateLog', `Erreur de mise à jour: ${err.message}`)
+}) 
 }
 
 // Open channel to listen for update actions.
