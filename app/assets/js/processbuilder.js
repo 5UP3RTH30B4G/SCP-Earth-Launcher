@@ -44,7 +44,7 @@ class ProcessBuilder {
     /**
      * Convienence method to run the functions typically used to build a process.
      */
-    build(){
+        build(){
         fs.ensureDirSync(this.gameDir)
         const tempNativePath = path.join(os.tmpdir(), ConfigManager.getTempNativeFolder(), crypto.pseudoRandomBytes(16).toString('hex'))
         process.throwDeprecation = true
@@ -73,10 +73,13 @@ class ProcessBuilder {
 
         logger.info('Launch Arguments:', args)
 
-        const child = child_process.spawn(ConfigManager.getJavaExecutable(this.server.rawServer.id), args, {
+        // --- Force Java 17 for game launch ---
+        const java17Path = 'C:\\Program Files\\Java\\jdk-17\\bin\\java.exe' // <-- Update this path if needed
+        const child = child_process.spawn(java17Path, args, {
             cwd: this.gameDir,
             detached: ConfigManager.getLaunchDetached()
         })
+        // --- End force Java 17 ---
 
         if(ConfigManager.getLaunchDetached()){
             child.unref()
